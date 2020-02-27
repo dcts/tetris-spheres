@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css?family=Dosis|Open+Sans+Condensed:300&display=swap');
+
+*, html, body {
+  margin: 0 auto;
+}
+
+body {
+  background-image: url(../img/bg.png);
+  color: white;
+  font-family: 'Dosis', sans-serif;
+}
+
+.container {
+  max-width: 900px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  min-height: 100%;
+  border: 1px solid red;
+  background-color: rgba(0,0,0,0.5);
+}
+
+h1.page-title {
+  font-weight: light;
+  letter-spacing: 4px;
+  font-size: 56px;
+  font-family: 'Open Sans Condensed', sans-serif;
+  text-align: center;
+}
+p.subtitle {
+  /*font-family: 'Dosis', sans-serif;*/
+  font-size: 28px;
+  text-align: center;
+}
