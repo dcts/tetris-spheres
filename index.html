@@ -4,6 +4,18 @@
   <meta charset="UTF-8">
   <link rel="stylesheet" href="css/style.css">
   <title>Tetris Spheres</title>
+  <!-- P5.js -->
+  <script src="fake-cdn/p5.min.js"></script>
+  <script src="fake-cdn/addons/p5.dom.min.js"></script>
+  <script src="fake-cdn/addons/p5.sound.min.js"></script>
+  <!-- P5.js: CDN -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.1/p5.min.js"></script> -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.1/addons/p5.dom.min.js"></script> -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.1/addons/p5.sound.min.js"></script> -->
+
+  <script src="js/GameField.js"></script>
+  <script src="js/game.js"></script>
+  <script src="js/index.js"></script>
 </head>
 <body>
   <div class="container">
@@ -14,10 +26,40 @@
       <p class="subtitle">by dcts</p>
     </div>
 
-    <!-- GAME CANVAS -->
+    <!-- GAME SECTION -->
     <div class="game-section">
+      <!-- control left -->
+      <div id="menu-left" class="menu-section">
+        <div class="card brick-card">
+          <p>SAVED</p>
+        </div>
+        <div class="control-element">
+          <p class="title">ARTIST</p>
+          <p class="content">Tobias<br>Herzog</p>
+        </div>
+      </div>
+
+      <!-- game canvas-->
+      <div id="game-canvas">
+      </div>
+
+      <!-- control right -->
+      <div id="menu-right" class="menu-section">
+        <div class="card brick-card">
+          <p>NEXT</p>
+        </div>
+        <div class="control-element">
+          <p class="title">TIME</p>
+          <p class="content">01:24.24</p>
+          <p class="title">SCORE</p>
+          <p class="content">1'240</p>
+          <p class="title">HIGHSCORE</p>
+          <p class="content">314'230</p>
+        </div>
+      </div>
     </div>
 
   </div>
 </body>
 </html>
+
