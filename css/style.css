@@ -31,8 +31,8 @@ body {
   width: 180px;
   padding-top: 20px;
   padding-bottom: 20px;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 30px;
+  padding-left: 30px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
