@@ -4,7 +4,7 @@ const sizeWidth = 10;
 const sizeHeight = 20;
 const gamefield = new GameField(sizeWidth, sizeHeight);
 
-let img;
+let square;
 
 function preload() {
   square = loadImage('../img/assets/stroke_with_fill.svg');
