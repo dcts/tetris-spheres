@@ -7,9 +7,9 @@ let assets;
 
 function preload() {
   assets = {
-    square: loadImage('../img/assets/stroke_with_fill.svg'),
-    el2: loadImage('../img/assets/element_2.svg'),
-    el4: loadImage('../img/assets/element_4.svg'),
+    square: loadImage('/img/assets/stroke_with_fill.svg'),
+    el2: loadImage('/img/assets/element_2.svg'),
+    el4: loadImage('/img/assets/element_4.svg'),
   }
 }
 
