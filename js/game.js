@@ -30,6 +30,7 @@ function draw() {
   clear();
   background('rgba(0,0,0,0.5)');
   gamefield.drawField(block);
+  gamefield.clearLines();
 }
 
 

@@ -51,8 +51,16 @@ class Block {
     blockMoved.move(direction);
     if (!blockMoved.hasCollision(gamefield)) {
       this.move(direction);
+      return true;
     } else {
-      console.log("COLLISION DETECTED!");
+      return false;
+    }
+  }
+
+  fallDown(gamefield) {
+    let moved = block.moveIfNoCollision("DOWN", gamefield);
+    while (moved) {
+      moved = block.moveIfNoCollision("DOWN", gamefield);
     }
   }
 
@@ -63,12 +71,16 @@ class Block {
     this.matrix.forEach((row, rIndx) => {
       row.forEach((cell, cIndx) => {
         if (cell === "@") {
-          // collision with gamefield
-          if (gamefield.matrix[rIndx+yoffset][cIndx+xoffset] === "x") {
-            hasCollision = true;
-          }
-          // left/right boundaries
-          if (cIndx+xoffset < 0 || cIndx+xoffset > gamefield.blocksX - 1) {
+          try { // if gamefield out of bounds -> will cause error!
+            // collision with gamefield
+            if (gamefield.matrix[rIndx+yoffset][cIndx+xoffset] === "x") {
+              hasCollision = true;
+            }
+            // left/right boundaries
+            if (cIndx+xoffset < 0 || cIndx+xoffset > gamefield.blocksX - 1) {
+              hasCollision = true;
+            }
+          } catch {
             hasCollision = true;
           }
         }
@@ -80,10 +92,13 @@ class Block {
   toWall(gamefield) {
     const xoffset = this.x;
     const yoffset = this.y;
+    console.log(this.matrix);
     this.matrix.forEach((row, rIndx) => {
       row.forEach((cell, cIndx) => {
         if (cell === "@") {
+          gamefield.display();
           gamefield.matrix[rIndx+yoffset][cIndx+xoffset] = "x";
+          gamefield.display();
         }
       })
     })

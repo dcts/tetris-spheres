@@ -10,7 +10,7 @@ class GameField {
     this.blocksX = blocksX;
     this.blocksY = blocksY;
     this.blocksize = blocksize;
-    this.matrix = constructMatrix(blocksX, blocksY);
+    // this.matrix = constructMatrix(blocksX, blocksY);
     this.matrix = DEMO_MATRIX;
     this.assets = assets;
   }
@@ -34,7 +34,7 @@ class GameField {
     this.drawWall();
     this.drawBlock(currentBlock);
     // HARDCODED DEMO (simulate ghost)
-    image(this.assets.el4, 180, 540, 90, 60);
+    // image(this.assets.el4, 180, 540, 90, 60);
   }
 
   drawWall() {
@@ -57,6 +57,22 @@ class GameField {
         }
       });
     })
+  }
+
+  clearLines() {
+    let cleared = 0;
+    let newMatrix = [];
+    this.matrix.forEach(row => {
+      if (!row.every(cell => cell === "x")) {
+        newMatrix.push(row);
+      } else {
+        cleared++;
+      }
+    });
+    for (let i=0; i<cleared; i++) {
+      newMatrix.unshift('..........'.split(''));
+    }
+    this.matrix = newMatrix;
   }
 }
 
@@ -84,9 +100,16 @@ DEMO_MATRIX.push('..........'.split(''));
 DEMO_MATRIX.push('..........'.split(''));
 DEMO_MATRIX.push('..........'.split(''));
 DEMO_MATRIX.push('..........'.split(''));
-DEMO_MATRIX.push('.xx.......'.split(''));
-DEMO_MATRIX.push('..x.......'.split(''));
-DEMO_MATRIX.push('..x.x.....'.split(''));
-DEMO_MATRIX.push('xxx.x..xxx'.split(''));
-DEMO_MATRIX.push('xxxxx.xxxx'.split(''));
-DEMO_MATRIX.push('.xxxxxxxxx'.split(''));
+DEMO_MATRIX.push('..........'.split(''));
+DEMO_MATRIX.push('..........'.split(''));
+DEMO_MATRIX.push('..........'.split(''));
+DEMO_MATRIX.push('..........'.split(''));
+DEMO_MATRIX.push('..........'.split(''));
+DEMO_MATRIX.push('..........'.split(''));
+
+// DEMO_MATRIX.push('.xx.......'.split(''));
+// DEMO_MATRIX.push('..x.......'.split(''));
+// DEMO_MATRIX.push('..x.x.....'.split(''));
+// DEMO_MATRIX.push('xxx.x..xxx'.split(''));
+// DEMO_MATRIX.push('xxxxx.xxxx'.split(''));
+// DEMO_MATRIX.push('.xxxxxxxxx'.split(''));

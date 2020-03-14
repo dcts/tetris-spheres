@@ -14,6 +14,7 @@ function keyPressed() {
     block.rotateIfNoCollision(gamefield);
   }
   if (key==' ') {
+    block.fallDown(gamefield);
     block.toWall(gamefield);
     block = blockNext;
     blockNext = new Block();
@@ -23,6 +24,8 @@ function keyPressed() {
   }
   if (key=='Enter') {
     console.log('enter');
+    block.toWall(gamefield);
+
   }
 }
 
