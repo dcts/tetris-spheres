@@ -51,6 +51,8 @@ body {
 
 #defaultCanvas0 {
   justify-content: center;
+  border: 2px solid #99ccff;
+  border-top: none;
 }
 h1.page-title {
   font-weight: light;

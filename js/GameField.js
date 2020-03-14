@@ -1,21 +1,25 @@
-function GameField (sizeWidth, sizeHeight, blocksize, assets) {
+class GameField {
   /*
    * Matrix represents game state
    * . = empty
    * @ = block (can be moved by player)
    * # = wall (manifestated block)
    */
-  this.sizeWidth = sizeWidth;
-  this.sizeHeight = sizeHeight;
-  this.blocksize = blocksize;
-  this.matrix = constructMatrix(sizeWidth, sizeHeight);
-  this.matrix = demoMatrix();
-  this.assets = assets;
 
-  this.displayStr = function() {
+  constructor(blocksX, blocksY, blocksize, assets) {
+    this.blocksX = blocksX;
+    this.blocksY = blocksY;
+    this.blocksize = blocksize;
+    this.matrix = constructMatrix(blocksX, blocksY);
+    this.matrix = DEMO_MATRIX;
+    this.assets = assets;
+  }
+
+  displayStr() {
     console.log(this.matrixToString());
   }
-  this.matrixToString = function() {
+
+  matrixToString() {
     let str = "";
     this.matrix.forEach(row => {
       row.forEach(cell => {
@@ -26,58 +30,63 @@ function GameField (sizeWidth, sizeHeight, blocksize, assets) {
     return str;
   }
 
-  this.drawField = function () {
-    // HARDCODED DEMO
-    // simulate current block
-    image(this.assets.square, 180, 90, 30, 30);
-    image(this.assets.square, 210, 90, 30, 30);
-    image(this.assets.square, 240, 90, 30, 30);
-    image(this.assets.square, 180, 120, 30, 30);
-    // simulate ghost
+  drawField(currentBlock) {
+    this.drawWall();
+    this.drawBlock(currentBlock);
+    // HARDCODED DEMO (simulate ghost)
     image(this.assets.el4, 180, 540, 90, 60);
+  }
 
-
-    // WALL SIMULATION
+  drawWall() {
     this.matrix.forEach((row, rIndx) => {
       row.forEach((cell, cIndx) => {
         if (cell === "x") {
-          image(this.assets.square, cIndx*this.blocksize, rIndx*this.blocksize, 30, 30);
+          image(this.assets.square, cIndx*this.blocksize, rIndx*this.blocksize, blocksize, blocksize);
+        }
+      });
+    })
+  }
+
+  drawBlock(block) {
+    const xoffset = block.x;
+    const yoffset = block.y;
+    block.matrix.forEach((row, rIndx) => {
+      row.forEach((cell, cIndx) => {
+        if (cell === "@") {
+          image(this.assets.square, (cIndx+xoffset)*this.blocksize, (rIndx+yoffset)*this.blocksize, blocksize, blocksize);
         }
       });
     })
   }
 }
 
-function constructMatrix(sizeWidth, sizeHeight) {
-  return new Array(sizeHeight).fill(new Array(sizeWidth).fill("."));
+function constructMatrix(blocksX, blocksY) {
+  return new Array(blocksY).fill(new Array(blocksX).fill("."));
 }
 
 /*
  * FOR DEMO PURPOSE ONLY
  */
-function demoMatrix() {
-  const matrix = [];
-  matrix.push("..........".split(""));
-  matrix.push("..........".split(""));
-  matrix.push("..........".split(""));
-  matrix.push("..........".split(""));
-  matrix.push("..........".split(""));
-  matrix.push("..........".split(""));
-  matrix.push("..........".split(""));
-  matrix.push("..........".split(""));
-  matrix.push("..........".split(""));
-  matrix.push("..........".split(""));
-  matrix.push("..........".split(""));
-  matrix.push("..........".split(""));
-  matrix.push("..........".split(""));
-  matrix.push("..........".split(""));
-  matrix.push("..........".split(""));
-  matrix.push("..........".split(""));
-  matrix.push("..........".split(""));
-  matrix.push("..........".split(""));
-  matrix.push("....x.....".split(""));
-  matrix.push("xxx.x..xxx".split(""));
-  matrix.push("xxxxx.xxxx".split(""));
-  matrix.push(".xxxxxxxxx".split(""));
-  return matrix;
-}
+const DEMO_MATRIX = [];
+DEMO_MATRIX.push('..........'.split(''));
+DEMO_MATRIX.push('..........'.split(''));
+DEMO_MATRIX.push('..........'.split(''));
+DEMO_MATRIX.push('..........'.split(''));
+DEMO_MATRIX.push('..........'.split(''));
+DEMO_MATRIX.push('..........'.split(''));
+DEMO_MATRIX.push('..........'.split(''));
+DEMO_MATRIX.push('..........'.split(''));
+DEMO_MATRIX.push('..........'.split(''));
+DEMO_MATRIX.push('..........'.split(''));
+DEMO_MATRIX.push('..........'.split(''));
+DEMO_MATRIX.push('..........'.split(''));
+DEMO_MATRIX.push('..........'.split(''));
+DEMO_MATRIX.push('..........'.split(''));
+DEMO_MATRIX.push('..........'.split(''));
+DEMO_MATRIX.push('..........'.split(''));
+DEMO_MATRIX.push('.xx.......'.split(''));
+DEMO_MATRIX.push('..x.......'.split(''));
+DEMO_MATRIX.push('..x.x.....'.split(''));
+DEMO_MATRIX.push('xxx.x..xxx'.split(''));
+DEMO_MATRIX.push('xxxxx.xxxx'.split(''));
+DEMO_MATRIX.push('.xxxxxxxxx'.split(''));

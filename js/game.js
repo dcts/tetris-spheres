@@ -1,8 +1,10 @@
 // GLOBAL VARIABLES
 const blocksize = 30;
-const sizeWidth = 10;
-const sizeHeight = 22;
+const blocksX = 10;
+const blocksY = 22;
 let gamefield;
+let block;
+let blockNext;
 let assets;
 
 function preload() {
@@ -14,36 +16,18 @@ function preload() {
 }
 
 function setup() {
-  gamefield = new GameField(sizeWidth, sizeHeight, blocksize, assets);
+  gamefield = new GameField(blocksX, blocksY, blocksize, assets);
+  block = new Block();
+  blockNext = new Block();
   pixelDensity(10);
-  let myCanvas = createCanvas(blocksize*sizeWidth, blocksize*sizeHeight);
+  let myCanvas = createCanvas(blocksize*blocksX, blocksize*blocksY);
   myCanvas.parent("game-canvas"); // put scetch inside div with id "game-canvas"
 }
 
 function draw() {
   clear();
   background('rgba(0,0,0,0.5)');
-  gamefield.drawField();
+  gamefield.drawField(block);
 }
 
-function keyPressed() {
-  if (key=='ArrowLeft') {
-    console.log("MOVE LEFT");
-  }
-  if (key=='ArrowRight') {
-    console.log("MOVE RIGHT");
-  }
-  if (key=='ArrowDown') {
-    console.log("rotate DOWN");
-  }
-  if (key=='ArrowUp') {
-    console.log("rotate UP");
-  }
-  if (key==' ') {
-    console.log("brick down");
-  }
-  if (key=='Control') {
-    console.log("save brick");
-  }
-}
 
