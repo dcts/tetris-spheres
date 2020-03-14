@@ -38,7 +38,12 @@ function draw() {
   timer.updateUi();
   if (timer.timePassed > timecount * intervall) {
     timecount++;
-    block.moveIfNoCollision("DOWN", gamefield);
+    hasNoCollision = block.moveIfNoCollision("DOWN", gamefield);
+    if (!hasNoCollision) {
+      block.toWall(gamefield);
+      block = blockNext;
+      blockNext = new Block();
+    }
   }
 }
 
