@@ -7,6 +7,10 @@ Open source implementation of tetris effect! Before starting a game, the player 
 - [tobias herzog (clockworked ep#1)](https://open.spotify.com/artist/4dlgo712iwaJqhxlPEZVbp?si=oCmbP5iJQwqqv2yylmbcZA)
 - [kellen]()
 
+### DEPLOYMENT
+```
+firebase deploy
+```
 
 ### Todos
 seach code for `@TODO`!
