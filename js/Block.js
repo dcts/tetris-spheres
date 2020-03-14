@@ -11,7 +11,7 @@ class Block {
       this.type = type;
     }
     this.x = 3;
-    this.y = 1;
+    this.y = 0;
     this.rotationState = 0;
     this.matrix = BLOCKS[this.type];
   }
@@ -63,7 +63,12 @@ class Block {
     this.matrix.forEach((row, rIndx) => {
       row.forEach((cell, cIndx) => {
         if (cell === "@") {
+          // collision with gamefield
           if (gamefield.matrix[rIndx+yoffset][cIndx+xoffset] === "x") {
+            hasCollision = true;
+          }
+          // left/right boundaries
+          if (cIndx+xoffset < 0 || cIndx+xoffset > gamefield.blocksX - 1) {
             hasCollision = true;
           }
         }
