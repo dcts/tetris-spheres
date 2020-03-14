@@ -10,8 +10,7 @@ class GameField {
     this.blocksX = blocksX;
     this.blocksY = blocksY;
     this.blocksize = blocksize;
-    // this.matrix = constructMatrix(blocksX, blocksY);
-    this.matrix = DEMO_MATRIX;
+    this.matrix = EMPTY_MATRIX;
     this.assets = assets;
   }
 
@@ -70,46 +69,35 @@ class GameField {
       }
     });
     for (let i=0; i<cleared; i++) {
-      newMatrix.unshift('..........'.split(''));
+      newMatrix.unshift('..........'.split('')); // @TODO: adapt for variable blocksX !!!
     }
     this.matrix = newMatrix;
   }
 }
 
-function constructMatrix(blocksX, blocksY) {
-  return new Array(blocksY).fill(new Array(blocksX).fill("."));
-}
-
 /*
  * FOR DEMO PURPOSE ONLY
  */
-const DEMO_MATRIX = [];
-DEMO_MATRIX.push('..........'.split(''));
-DEMO_MATRIX.push('..........'.split(''));
-DEMO_MATRIX.push('..........'.split(''));
-DEMO_MATRIX.push('..........'.split(''));
-DEMO_MATRIX.push('..........'.split(''));
-DEMO_MATRIX.push('..........'.split(''));
-DEMO_MATRIX.push('..........'.split(''));
-DEMO_MATRIX.push('..........'.split(''));
-DEMO_MATRIX.push('..........'.split(''));
-DEMO_MATRIX.push('..........'.split(''));
-DEMO_MATRIX.push('..........'.split(''));
-DEMO_MATRIX.push('..........'.split(''));
-DEMO_MATRIX.push('..........'.split(''));
-DEMO_MATRIX.push('..........'.split(''));
-DEMO_MATRIX.push('..........'.split(''));
-DEMO_MATRIX.push('..........'.split(''));
-DEMO_MATRIX.push('..........'.split(''));
-DEMO_MATRIX.push('..........'.split(''));
-DEMO_MATRIX.push('..........'.split(''));
-DEMO_MATRIX.push('..........'.split(''));
-DEMO_MATRIX.push('..........'.split(''));
-DEMO_MATRIX.push('..........'.split(''));
-
-// DEMO_MATRIX.push('.xx.......'.split(''));
-// DEMO_MATRIX.push('..x.......'.split(''));
-// DEMO_MATRIX.push('..x.x.....'.split(''));
-// DEMO_MATRIX.push('xxx.x..xxx'.split(''));
-// DEMO_MATRIX.push('xxxxx.xxxx'.split(''));
-// DEMO_MATRIX.push('.xxxxxxxxx'.split(''));
+const EMPTY_MATRIX = [];
+EMPTY_MATRIX.push('..........'.split(''));
+EMPTY_MATRIX.push('..........'.split(''));
+EMPTY_MATRIX.push('..........'.split(''));
+EMPTY_MATRIX.push('..........'.split(''));
+EMPTY_MATRIX.push('..........'.split(''));
+EMPTY_MATRIX.push('..........'.split(''));
+EMPTY_MATRIX.push('..........'.split(''));
+EMPTY_MATRIX.push('..........'.split(''));
+EMPTY_MATRIX.push('..........'.split(''));
+EMPTY_MATRIX.push('..........'.split(''));
+EMPTY_MATRIX.push('..........'.split(''));
+EMPTY_MATRIX.push('..........'.split(''));
+EMPTY_MATRIX.push('..........'.split(''));
+EMPTY_MATRIX.push('..........'.split(''));
+EMPTY_MATRIX.push('..........'.split(''));
+EMPTY_MATRIX.push('..........'.split(''));
+EMPTY_MATRIX.push('..........'.split(''));
+EMPTY_MATRIX.push('..........'.split(''));
+EMPTY_MATRIX.push('..........'.split(''));
+EMPTY_MATRIX.push('..........'.split(''));
+EMPTY_MATRIX.push('..........'.split(''));
+EMPTY_MATRIX.push('..........'.split(''));

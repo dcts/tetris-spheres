@@ -2,10 +2,14 @@
 const blocksize = 30;
 const blocksX = 10;
 const blocksY = 22;
+const intervall = 1000; // in milliseconds
+
 let gamefield;
 let block;
 let blockNext;
 let assets;
+let timer;
+let timecount;
 
 function preload() {
   assets = {
@@ -24,6 +28,8 @@ function setup() {
   pixelDensity(10);
   let myCanvas = createCanvas(blocksize*blocksX, blocksize*blocksY);
   myCanvas.parent("game-canvas"); // put scetch inside div with id "game-canvas"
+  timer = new Timer();
+  timecount = 0;
 }
 
 function draw() {
@@ -31,6 +37,11 @@ function draw() {
   background('rgba(0,0,0,0.5)');
   gamefield.drawField(block);
   gamefield.clearLines();
+  timer.update();
+  if (timer.timePassed > timecount * intervall) {
+    timecount++;
+    block.moveIfNoCollision("DOWN", gamefield);
+  }
 }
 
 
