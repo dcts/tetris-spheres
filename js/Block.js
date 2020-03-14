@@ -31,21 +31,57 @@ class Block {
     console.log(this.rotationState);
   }
 
-  moveDown() {
-    this.y++;
+  rotateIfNoCollision(gamefield) {
+    let blockRotated = this.copy();
+    blockRotated.rotate();
+    if (!blockRotated.hasCollision(gamefield)) {
+      this.rotate();
+    } else {
+      console.log("COLLISION DETECTED!");
+    }
   }
-  moveUp() {
-    this.y--;
+
+  move(direction) {
+    this.x += DIR_LOOKUP[direction].x;
+    this.y += DIR_LOOKUP[direction].y;
   }
-  moveRight() {
-    this.x++;
+
+  moveIfNoCollision(direction, gamefield) {
+    let blockMoved = this.copy();
+    blockMoved.move(direction);
+    if (!blockMoved.hasCollision(gamefield)) {
+      this.move(direction);
+    } else {
+      console.log("COLLISION DETECTED!");
+    }
   }
-  moveLeft() {
-    this.x--;
+
+  hasCollision(gamefield) {
+    const xoffset = this.x;
+    const yoffset = this.y;
+    let hasCollision = false;
+    this.matrix.forEach((row, rIndx) => {
+      row.forEach((cell, cIndx) => {
+        if (cell === "@") {
+          if (gamefield.matrix[rIndx+yoffset][cIndx+xoffset] === "x") {
+            hasCollision = true;
+          }
+        }
+      })
+    });
+    return hasCollision;
   }
 
   toWall(gamefield) {
-
+    const xoffset = this.x;
+    const yoffset = this.y;
+    this.matrix.forEach((row, rIndx) => {
+      row.forEach((cell, cIndx) => {
+        if (cell === "@") {
+          gamefield.matrix[rIndx+yoffset][cIndx+xoffset] = "x";
+        }
+      })
+    })
   }
 
   display() {
@@ -59,6 +95,14 @@ class Block {
     console.log(str);
   }
 
+  copy() {
+    let copiedBlock = new Block(this.type);
+    copiedBlock.rotationState = this.rotationState;
+    copiedBlock.matrix = this.matrix;
+    copiedBlock.x = this.x;
+    copiedBlock.y = this.y;
+    return copiedBlock;
+  }
 }
 
 const BLOCKS = {
@@ -99,11 +143,9 @@ function randomType() {
   return Object.keys(BLOCKS)[Math.floor(Math.random()*Object.keys(BLOCKS).length)];
 };
 
-// function dirLookup() {
-//   return {
-//     "DOWN":  {x: 0,  y: 1},
-//     "UP":    {x: 0,  y: -1},
-//     "RIGHT": {x: 1,  y: 0},
-//     "LEFT":  {x: -1, y: 0},
-//   };
-// }
+const DIR_LOOKUP = {
+  "DOWN":  {x: 0,  y: 1},
+  "UP":    {x: 0,  y: -1},
+  "RIGHT": {x: 1,  y: 0},
+  "LEFT":  {x: -1, y: 0},
+};

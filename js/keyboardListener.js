@@ -1,23 +1,19 @@
 function keyPressed() {
   if (key=='ArrowLeft') {
-    console.log("MOVE LEFT");
-    block.moveLeft();
+    block.moveIfNoCollision("LEFT", gamefield);
   }
+
   if (key=='ArrowRight') {
-    console.log("MOVE RIGHT");
-    block.moveRight();
+    block.moveIfNoCollision("RIGHT", gamefield);
   }
+
   if (key=='ArrowDown') {
-    console.log("rotate DOWN");
-    block.moveDown();
+    block.moveIfNoCollision("DOWN", gamefield);
   }
   if (key=='ArrowUp') {
-    console.log("rotate UP");
-    block.rotate();
+    block.rotateIfNoCollision(gamefield);
   }
   if (key==' ') {
-    console.log("brick down");
-    console.log("to WALL");
     block.toWall(gamefield);
     block = blockNext;
     blockNext = new Block();
@@ -25,4 +21,8 @@ function keyPressed() {
   if (key=='Control') {
     console.log("save brick");
   }
+  if (key=='Enter') {
+    console.log('enter');
+  }
 }
+

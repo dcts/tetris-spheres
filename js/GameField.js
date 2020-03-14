@@ -15,7 +15,7 @@ class GameField {
     this.assets = assets;
   }
 
-  displayStr() {
+  display() {
     console.log(this.matrixToString());
   }
 
