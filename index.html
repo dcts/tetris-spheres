@@ -6,12 +6,10 @@
   <title>Tetris Spheres</title>
   <!-- P5.js -->
   <script src="fake-cdn/p5.min.js"></script>
-  <script src="fake-cdn/addons/p5.dom.min.js"></script>
-  <script src="fake-cdn/addons/p5.sound.min.js"></script>
+  <!-- <script src="fake-cdn/addons/p5.dom.min.js"></script> -->
+  <!-- <script src="fake-cdn/addons/p5.sound.min.js"></script> -->
   <!-- P5.js: CDN -->
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.1/p5.min.js"></script> -->
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.1/addons/p5.dom.min.js"></script> -->
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.1/addons/p5.sound.min.js"></script> -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.js"></script> -->
 
   <script src="js/Timer.js"></script>
   <script src="js/GameField.js"></script>
@@ -43,7 +41,7 @@
       </div>
 
       <!-- game canvas-->
-      <div id="game-canvas">
+      <div id="game-canvas" class="bounce-5">
       </div>
 
       <!-- control right -->
@@ -62,6 +60,43 @@
       </div>
     </div>
 
+    <!-- BOUNCE DEMO -->
+    <!-- https://css-tricks.com/making-css-animations-feel-natural/ -->
+    <!-- <h3>Add a Second Bounce</h3>
+    <div class="stage">
+      <div class="box bounce-5"></div>
+    <style>
+      .stage {
+        border-bottom: 3px solid #444;
+        display: flex;
+        height: 330px;
+        width: 100%;
+      }
+      .box {
+        align-self: flex-end;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+        background-color: #F44336;
+        height: 200px;
+        margin: 0 auto 0 auto;
+        transform-origin: bottom;
+        width: 200px;
+      }
+      .bounce-5 {
+        animation-name: bounce-5;
+        animation-timing-function: ease;
+      }
+      @keyframes bounce-5 {
+        0%   { transform: scale(1,1)    translateY(0); }
+        10%  { transform: scale(1.1,.9) translateY(0); }
+        30%  { transform: scale(.9,1.1) translateY(-100px); }
+        50%  { transform: scale(1,1)    translateY(0); }
+        57%  { transform: scale(1,1)    translateY(-7px); }
+        64%  { transform: scale(1,1)    translateY(0); }
+        100% { transform: scale(1,1)    translateY(0); }
+      }
+    </style>
+    </div> -->
   </div>
 </body>
 </html>

@@ -1,7 +1,7 @@
 // GLOBAL VARIABLES
 const blocksize = 30;
 const blocksX = 10;
-const blocksY = 22;
+const blocksY = 20;
 const intervall = 1000; // in milliseconds
 
 let gamefield;
@@ -13,11 +13,8 @@ let timecount;
 
 function preload() {
   assets = {
-    // square: loadImage('/img/assets/stroke_with_fill.svg'),
-    // square: loadImage('/img/assets/only_stroke.svg'),
+    // SVG have to have width and height set to work in firefox!!!
     square: loadImage('/img/assets/stroke_with_dot.svg'),
-    el2: loadImage('/img/assets/element_2.svg'),
-    el4: loadImage('/img/assets/element_4.svg'),
   }
 }
 
@@ -38,6 +35,7 @@ function draw() {
   gamefield.drawField(block);
   gamefield.clearLines();
   timer.update();
+  timer.updateUi();
   if (timer.timePassed > timecount * intervall) {
     timecount++;
     block.moveIfNoCollision("DOWN", gamefield);

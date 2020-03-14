@@ -99,5 +99,3 @@ EMPTY_MATRIX.push('..........'.split(''));
 EMPTY_MATRIX.push('..........'.split(''));
 EMPTY_MATRIX.push('..........'.split(''));
 EMPTY_MATRIX.push('..........'.split(''));
-EMPTY_MATRIX.push('..........'.split(''));
-EMPTY_MATRIX.push('..........'.split(''));

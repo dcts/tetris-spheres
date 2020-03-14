@@ -28,7 +28,6 @@ class Block {
     }
     this.matrix = newMatrix;
     this.rotationState = (this.rotationState + 1) % 4;
-    console.log(this.rotationState);
   }
 
   rotateIfNoCollision(gamefield) {
@@ -36,8 +35,6 @@ class Block {
     blockRotated.rotate();
     if (!blockRotated.hasCollision(gamefield)) {
       this.rotate();
-    } else {
-      console.log("COLLISION DETECTED!");
     }
   }
 
@@ -92,7 +89,6 @@ class Block {
   toWall(gamefield) {
     const xoffset = this.x;
     const yoffset = this.y;
-    console.log(this.matrix);
     this.matrix.forEach((row, rIndx) => {
       row.forEach((cell, cIndx) => {
         if (cell === "@") {

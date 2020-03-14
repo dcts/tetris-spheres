@@ -23,9 +23,7 @@ function keyPressed() {
     console.log("save brick");
   }
   if (key=='Enter') {
-    console.log('enter');
     block.toWall(gamefield);
-
   }
 }
 

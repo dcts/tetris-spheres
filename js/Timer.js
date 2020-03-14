@@ -6,6 +6,8 @@ class Timer {
 
   update() {
     this.timePassed = Date.now() - this.startingTime;
+  }
+  updateUi() {
     let seconds = this.timePassed / 1000;
     let minutes = Math.floor(seconds / 60);
     document.getElementById("inject-time").innerText = `${transformMinutes(minutes)}:${transformSeconds(seconds)}`;
