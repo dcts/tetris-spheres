@@ -20,7 +20,6 @@ function keyPressed() {
     blockNext = new Block();
   }
   if (key=='Control') {
-    console.log("save brick");
   }
   if (key=='Enter') {
     block.toWall(gamefield);

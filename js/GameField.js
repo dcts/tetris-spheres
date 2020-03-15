@@ -32,8 +32,7 @@ class GameField {
   drawField(currentBlock) {
     this.drawWall();
     this.drawBlock(currentBlock);
-    // HARDCODED DEMO (simulate ghost)
-    // image(this.assets.el4, 180, 540, 90, 60);
+    this.drawGhost(currentBlock.ghost(gamefield));
   }
 
   drawWall() {
@@ -47,12 +46,20 @@ class GameField {
   }
 
   drawBlock(block) {
+    this.drawBlockGeneral(block, this.assets.square);
+  }
+
+  drawGhost(block) {
+    this.drawBlockGeneral(block, this.assets.ghost);
+  }
+
+  drawBlockGeneral(block, asset) {
     const xoffset = block.x;
     const yoffset = block.y;
     block.matrix.forEach((row, rIndx) => {
       row.forEach((cell, cIndx) => {
         if (cell === "@") {
-          image(this.assets.square, (cIndx+xoffset)*this.blocksize, (rIndx+yoffset)*this.blocksize, blocksize, blocksize);
+          image(asset, (cIndx+xoffset)*this.blocksize, (rIndx+yoffset)*this.blocksize, blocksize, blocksize);
         }
       });
     })

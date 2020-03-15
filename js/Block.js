@@ -55,9 +55,9 @@ class Block {
   }
 
   fallDown(gamefield) {
-    let moved = block.moveIfNoCollision("DOWN", gamefield);
+    let moved = this.moveIfNoCollision("DOWN", gamefield);
     while (moved) {
-      moved = block.moveIfNoCollision("DOWN", gamefield);
+      moved = this.moveIfNoCollision("DOWN", gamefield);
     }
   }
 
@@ -92,9 +92,7 @@ class Block {
     this.matrix.forEach((row, rIndx) => {
       row.forEach((cell, cIndx) => {
         if (cell === "@") {
-          gamefield.display();
           gamefield.matrix[rIndx+yoffset][cIndx+xoffset] = "x";
-          gamefield.display();
         }
       })
     })
@@ -118,6 +116,12 @@ class Block {
     copiedBlock.x = this.x;
     copiedBlock.y = this.y;
     return copiedBlock;
+  }
+
+  ghost(gamefield) {
+    let ghost = this.copy();
+    ghost.fallDown(gamefield);
+    return ghost;
   }
 }
 
