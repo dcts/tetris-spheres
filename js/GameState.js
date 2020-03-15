@@ -21,7 +21,6 @@ class GameState {
   }
 
   updateScoreUi() {
-    console.log(this.score);
     document.getElementById("inject-score").innerText = numberWithCommas(this.score);
   }
 
@@ -41,6 +40,5 @@ class GameState {
 }
 
 function numberWithCommas(x) {
-  console.log(x);
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
