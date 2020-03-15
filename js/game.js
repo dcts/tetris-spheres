@@ -4,6 +4,7 @@ const blocksX = 10;
 const blocksY = 20;
 const intervall = 1000; // in milliseconds
 
+let gamestate;
 let gamefield;
 let block;
 let blockNext;
@@ -20,6 +21,7 @@ function preload() {
 
 function setup() {
   gamefield = new GameField(blocksX, blocksY, blocksize, assets);
+  gamestate = new GameState();
   block = new Block();
   blockNext = new Block();
   pixelDensity(10);
@@ -32,6 +34,8 @@ function setup() {
 function draw() {
   clear();
   background('rgba(0,0,0,0.5)');
+  gamestate.updateScore(gamefield);
+  gamestate.updateScoreUi();
   gamefield.drawField(block);
   gamefield.clearLines();
   timer.update();

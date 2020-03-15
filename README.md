@@ -15,12 +15,12 @@ firebase deploy
 ### Todos
 seach code for `@TODO`!
 - [ ] change function GameField.clearLines() to variable blocksX
-- [ ] score
+- [x] score
 - [ ] render ghost blocks (block prediction)
 - [ ] display next block
 - [ ] feature to hold block for later (swap block)
 - [ ] Highscore database?
 - [ ] Donate Button (coffee)
 - [ ] info modal (what is this about?)
-- [ ] game over modal
+- [ ] game-over logic (modal)
 - [ ] music logic!
