@@ -79,6 +79,7 @@ class GameField {
       newMatrix.unshift('..........'.split('')); // @TODO: adapt for variable blocksX !!!
     }
     this.matrix = newMatrix;
+    return cleared;
   }
 }
 
