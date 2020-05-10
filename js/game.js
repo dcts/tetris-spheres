@@ -3,6 +3,7 @@ const blocksize = 30;
 const blocksX = 10;
 const blocksY = 20;
 const intervall = 1000; // in milliseconds
+const audioPlayer = new AudioPlayer();
 
 let gamestate;
 let gamefield;
@@ -31,6 +32,7 @@ function setup() {
   myCanvas.parent("game-canvas"); // put scetch inside div with id "game-canvas"
   timer = new Timer();
   timecount = 0;
+  audioPlayer.playMusic();
 }
 
 function draw() {
@@ -39,7 +41,12 @@ function draw() {
   gamestate.updateScore(gamefield);
   gamestate.updateScoreUi();
   gamefield.drawField(block);
-  gamefield.clearLines();
+  const linesCleared = gamefield.clearLines();
+  if (linesCleared === 4) {
+    audioPlayer.playTetrisEffect();
+  } else if (linesCleared > 0) {
+    audioPlayer.playEffect();
+  }
   timer.update();
   timer.updateUi();
   if (timer.timePassed > timecount * intervall) {
