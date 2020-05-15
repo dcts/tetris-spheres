@@ -1,7 +1,7 @@
 console.log("hi");
 let gameCanvas;
 
-document.addEventListener("DOMContentLoaded", ()=> {
+document.addEventListener("DOMContentLoaded", () => {
   setTimeout(() => {
     gameCanvas = document.getElementById("defaultCanvas0");
     console.log(gameCanvas);
@@ -11,6 +11,6 @@ document.addEventListener("DOMContentLoaded", ()=> {
       gameCanvas.classList.add("bounce-down");
     }
     window.bounceDown = bounceDown;
-  }, 1000);
+  }, 2000);
 });
 

@@ -17,7 +17,7 @@ let timecount;
 function preload() {
   assets = {
     // SVG have to have width and height set to work in firefox!!!
-    square: loadImage('/img/assets/stroke_with_fill.svg'),
+    square: loadImage('/img/assets/stroke_with_dot.svg'),
     ghost: loadImage('/img/assets/only_stroke.svg'),
   }
 }
