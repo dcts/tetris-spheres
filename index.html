@@ -21,8 +21,12 @@
   <script src="js/index.js"></script>
 </head>
 <body>
-  <div class="container">
+  <video autoplay muted loop id="myVideo">
+    <source src="video/background-particles.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video>
 
+  <div class="container">
     <!-- TITLE SECTION: -->
     <div class="header-section">
       <h1 class="page-title">TETRIS SPHERES</h1>
@@ -70,44 +74,6 @@
         </div>
       </div>
     </div>
-
-    <!-- BOUNCE DEMO -->
-    <!-- https://css-tricks.com/making-css-animations-feel-natural/ -->
-    <!-- <h3>Add a Second Bounce</h3>
-    <div class="stage">
-      <div class="box bounce-5"></div>
-    <style>
-      .stage {
-        border-bottom: 3px solid #444;
-        display: flex;
-        height: 330px;
-        width: 100%;
-      }
-      .box {
-        align-self: flex-end;
-        animation-duration: 2s;
-        animation-iteration-count: infinite;
-        background-color: #F44336;
-        height: 200px;
-        margin: 0 auto 0 auto;
-        transform-origin: bottom;
-        width: 200px;
-      }
-      .bounce-5 {
-        animation-name: bounce-5;
-        animation-timing-function: ease;
-      }
-      @keyframes bounce-5 {
-        0%   { transform: scale(1,1)    translateY(0); }
-        10%  { transform: scale(1.1,.9) translateY(0); }
-        30%  { transform: scale(.9,1.1) translateY(-100px); }
-        50%  { transform: scale(1,1)    translateY(0); }
-        57%  { transform: scale(1,1)    translateY(-7px); }
-        64%  { transform: scale(1,1)    translateY(0); }
-        100% { transform: scale(1,1)    translateY(0); }
-      }
-    </style>
-    </div> -->
   </div>
 </body>
 </html>

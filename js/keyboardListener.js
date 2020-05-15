@@ -21,6 +21,7 @@ function keyPressed() {
     block.toWall(gamefield);
     block = blockNext;
     blockNext = new Block();
+    bounceDown();
   }
 
   if (key=='Shift' || key=='Conrol') {

@@ -5,9 +5,29 @@
 }
 
 body {
-  background-image: url(../img/bg.png);
+  /* background-image: url(../img/bg.png); */
   color: white;
   font-family: 'Dosis', sans-serif;
+}
+
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+@keyframes bouncedown {
+  0% { top: 0px; }
+  30% { top: 5px; }
+  100% { top: 0px; }
+}
+.bounce-down {
+  animation: bouncedown 0.65s;
+}
+#defaultCanvas0 {
+  position: relative;
 }
 
 .flex {
@@ -15,6 +35,9 @@ body {
 }
 
 .container {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
   height: 100vh;
   background-color: rgba(0,0,0,0.5);
 }
