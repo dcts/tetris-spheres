@@ -14,9 +14,9 @@ firebase deploy
 
 ### Todos
 seach code for `@TODO`!
-- [ ] change function GameField.clearLines() to variable blocksX
 - [x] score
 - [x] render ghost blocks (block prediction)
+- [ ] endgame condition
 - [ ] display next block
 - [x] feature to hold block for later (swap block)
 - [ ] Highscore database?
@@ -25,3 +25,4 @@ seach code for `@TODO`!
 - [ ] game-over logic (modal)
 - [x] music logic!
 - [ ] background animation test? 
+
