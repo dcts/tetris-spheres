@@ -13,6 +13,17 @@ let blockSaved = null;
 let assets;
 let timer;
 let timecount;
+let firstIteration = true;
+
+function startGame() {
+  gamefield = new GameField(blocksX, blocksY, blocksize, assets);
+  gamestate = new GameState();
+  block = new Block();
+  blockNext = new Block();
+  timer = new Timer();
+  timecount = 0;
+  loop();
+}
 
 function preload() {
   assets = {
@@ -23,19 +34,17 @@ function preload() {
 }
 
 function setup() {
-  gamefield = new GameField(blocksX, blocksY, blocksize, assets);
-  gamestate = new GameState();
-  block = new Block();
-  blockNext = new Block();
   pixelDensity(10);
   let myCanvas = createCanvas(blocksize*blocksX, blocksize*blocksY);
   myCanvas.parent("game-canvas"); // put scetch inside div with id "game-canvas"
-  timer = new Timer();
-  timecount = 0;
-  audioPlayer.playMusic();
+  noLoop();
 }
 
 function draw() {
+  if (firstIteration) {
+    firstIteration = false;
+    return;
+  }
   clear();
   background('rgba(0,0,0,0.5)');
   gamestate.updateScore(gamefield);
