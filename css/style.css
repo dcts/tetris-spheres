@@ -41,8 +41,19 @@ body {
   height: 100vh;
   background-color: rgba(0,0,0,0.5);
 }
+.container.black-background {
+  background-color: black !important;
+}
 .header-section {
+  padding-top: 400px;
+  opacity: 0;
+  transition: opacity 1s ease, padding-top 1.5s cubic-bezier(0.85, 0, 0.15, 1);
+}
+.transition-position {
   padding-top: 40px;
+}
+.transition-opacity {
+  opacity: 1;
 }
 .game-section {
   margin-top: 40px;
@@ -89,9 +100,6 @@ p.subtitle {
   text-align: center;
 }
 
-
-.card {
-}
 .control-element > .title {
   margin-top: 10px;
 }
@@ -99,3 +107,23 @@ p.subtitle {
   font-size: 28px;
 }
 
+.visibility-hidden {
+  visibility: hidden;
+}
+#play-button {
+  opacity: 1;
+  transition: opacity 0.5s ease-in;
+}
+#play-button > .inner {
+  margin-top: 60px;
+  font-size: 30px;
+  background-color: honeydew;
+  color: black;
+  padding: 10px 50px;
+  border-radius: 49px;
+  font-family: monospace;
+  cursor: pointer;
+}
+#play-button.invisible {
+  opacity: 0;
+}

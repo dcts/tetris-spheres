@@ -32,6 +32,8 @@ class AudioPlayer {
   }
 
   playMusic() {
+    console.log("inside playMusic() => this.ready");
+    console.log(this.ready);
     this.playIntro();
     this.intro.addEventListener("ended", this.playLoop.bind(this), false); // Trick
     this.loop.addEventListener("ended", this.playLoop.bind(this), false); // Trick
@@ -40,7 +42,8 @@ class AudioPlayer {
   playIntro() {
     this.intro.pause();
     this.intro.currentTime = 0;
-    this.intro.play();
+    console.log("this.intro.play()");
+    console.log(this.intro.play());
   }
 
   playEffect() {

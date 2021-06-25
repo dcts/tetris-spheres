@@ -21,20 +21,24 @@
   <script src="js/index.js"></script>
 </head>
 <body>
-  <video autoplay muted loop id="myVideo">
+  <video muted loop id="myVideo" class="visibility-hidden">
     <source src="video/background-particles.mp4" type="video/mp4">
     Your browser does not support HTML5 video.
   </video>
 
-  <div class="container">
+  <div class="container black-background">
     <!-- TITLE SECTION: -->
     <div class="header-section">
       <h1 class="page-title">TETRIS SPHERES</h1>
       <p class="subtitle">by dcts</p>
+      <!-- INTRO SECTION -->
+      <div id="play-button" class="flex justify-center align-center invisible">
+        <div class="inner">PLAY</div>
+      </div>
     </div>
 
     <!-- GAME SECTION -->
-    <div class="game-section">
+    <div class="game-section visibility-hidden">
       <!-- control left -->
       <div id="menu-left" class="menu-section">
         <div class="card brick-card">
