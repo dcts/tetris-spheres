@@ -3,6 +3,9 @@ Open source implementation of tetris effect! Before starting a game, the player 
 
 <a href="https://dcts-tetris-spheres.web.app/" ><img src="https://user-images.githubusercontent.com/44790691/76081134-c3a90580-5fa8-11ea-8ae6-68a9f9883005.png" width="150px"></a>
 
+# Demo
+![tetris-pheres-final](https://user-images.githubusercontent.com/44790691/135914025-2927aef9-9dae-4084-996d-e69aa65b2967.gif)
+
 ### Featured Artists
 - [tobias herzog (clockworked ep#1)](https://open.spotify.com/artist/4dlgo712iwaJqhxlPEZVbp?si=oCmbP5iJQwqqv2yylmbcZA)
 - [kellen]()
